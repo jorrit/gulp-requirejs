@@ -18,6 +18,15 @@ A small, simply, very easy wrapper around the [require.js optimizer](https://git
 </tr>
 </table>
 
+
+##Installation
+
+Simply add `gulp-requirejs` as a dev-dependency in your package.json or run
+
+```bash
+$ npm install --save-dev gulp-requirejs
+```
+
 ## Usage
 
 Because the require.js optimizer (_r.js_) is a kind of build system in itself we can't use the `gulp.src([...])` syntax at the moment (I might add this in future), instead this wrapper itself emits a pipable stream, holding a 'virtual' file, in which the result of the r.js build process are saved.
