@@ -1,7 +1,7 @@
 {
   "name": "gulp-requirejs",
   "description": "Builds projects using require.js's optimizer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://github.com/robinthrift/gulp-requirejs",
   "repository": "git://github.com/robinthrift/gulp-requirejs.git",
   "author": "Robin Thrift <thrift.d.robin@googlemail.com> (http://webbrickworks.com/)",
