@@ -1,0 +1,33 @@
+{
+  "name": "gulp-requirejs",
+  "description": "Builds projects using require.js's optimizer",
+  "version": "0.1.0",
+  "homepage": "http://github.com/robinthrift/gulp-requirejs",
+  "repository": "git://github.com/robinthrift/gulp-requirejs.git",
+  "author": "Robin Thrift <thrift.d.robin@googlemail.com> (http://webbrickworks.com/)",
+  "main": "./index.js",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "dependencies": {
+    "gulp-util": "~2.2.5",
+    "requirejs": "2.1.8",
+    "event-stream": "~3.0.20"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/robinthrift/gulp-requirejs/raw/master/LICENSE"
+    }
+  ]
+}
