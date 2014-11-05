@@ -9,9 +9,9 @@
   "keywords": [
   ],
   "dependencies": {
+    "event-stream": "~3.0.20",
     "gulp-util": "~2.2.5",
-    "requirejs": "2.1.8",
-    "event-stream": "~3.0.20"
+    "requirejs": "~2.1.15"
   },
   "devDependencies": {
     "mocha": "*",
