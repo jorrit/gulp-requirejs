@@ -51,7 +51,7 @@ gulp.task('requirejsBuild', function() {
         },
         // ... more require.js options
     })
-        .pipe(gulp.dest('./delpoy/')); // pipe it to the output DIR
+        .pipe(gulp.dest('./deploy/')); // pipe it to the output DIR
 });
 ```
 
