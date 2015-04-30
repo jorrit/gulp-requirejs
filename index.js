@@ -37,6 +37,7 @@ module.exports = function(opts) {
                 path: _fName,
                 contents: new Buffer(text)
             }));
+            _s.end();
         });
     // } catch (err) {
     //     _s.emit('error', err);
@@ -51,6 +52,8 @@ module.exports = function(opts) {
 // a small wrapper around the r.js optimizer
 function optimize(opts, cb) {
     opts.out = cb;
-    opts.optimize = 'none';
+	if(!('optimize' in opts)){
+		opts.optimize = 'none';
+	}
     requirejs.optimize(opts);
 }
