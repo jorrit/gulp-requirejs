@@ -51,6 +51,6 @@ module.exports = function(opts) {
 // a small wrapper around the r.js optimizer
 function optimize(opts, cb) {
     opts.out = cb;
-    opts.optimize = 'none';
+    opts.optimize = opts.optimize || 'none';
     requirejs.optimize(opts);
 }
