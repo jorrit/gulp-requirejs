@@ -43,7 +43,7 @@ var gulp = require('gulp'),
     rjs = require('gulp-requirejs');
 
 gulp.task('requirejsBuild', function() {
-    rjs({
+    return rjs({
         baseUrl: 'path/to/your/base/file.js',
         out: 'FILENAME_TO_BE_OUTPUTTED',
         shim: {
@@ -54,6 +54,8 @@ gulp.task('requirejsBuild', function() {
         .pipe(gulp.dest('./deploy/')); // pipe it to the output DIR
 });
 ```
+
+Note: In order to let gulp know that the optimization completes, return the rjs stream.
 
 ### Error handling
 
