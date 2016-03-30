@@ -3,7 +3,7 @@ var gutil       = require('gulp-util'),
     PluginError = gutil.PluginError,
     File        = gutil.File,
     es          = require('event-stream'),
-    fs          = require("fs"),
+    fs          = require("fs");
 
 // Consts
 const PLUGIN_NAME = 'gulp-requirejs';
