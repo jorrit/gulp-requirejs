@@ -23,10 +23,5 @@
   "engines": {
     "node": ">= 0.4.0"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/robinthrift/gulp-requirejs/raw/master/LICENSE"
-    }
-  ]
+  "license": "MIT"
 }
