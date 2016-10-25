@@ -8,6 +8,25 @@ require('mocha');
 
 describe('gulp-requirejs', function() {
 
+    it('should emit end when stream is done', function(done) {
+        var stream = grjs({
+            out: 'simple_init.js',
+
+            baseUrl: 'test/fixtures/',
+
+            findNestedDependencies: true,
+            skipPragmas: true,
+
+            name: 'simple_init',
+
+            include: ['simple_init'],
+
+            create: true
+        });
+
+        stream.on('end', done);
+    });
+
     describe('simple AMD file', function() {
 
         it('should concat the files in the correct order', function(done) {
@@ -15,7 +34,7 @@ describe('gulp-requirejs', function() {
                 out: 'simple_init.js',
 
                 baseUrl: 'test/fixtures/',
-                
+
                 findNestedDependencies: true,
                 skipPragmas: true,
 
@@ -47,7 +66,7 @@ describe('gulp-requirejs', function() {
                 out: 'umd_init.js',
 
                 baseUrl: 'test/fixtures/',
-                
+
                 findNestedDependencies: true,
                 skipPragmas: true,
 
@@ -78,7 +97,7 @@ describe('gulp-requirejs', function() {
                 out: 'complex_init.js',
 
                 baseUrl: 'test/fixtures/vendor',
-                
+
                 findNestedDependencies: true,
                 skipPragmas: true,
 
@@ -145,18 +164,18 @@ describe('gulp-requirejs', function() {
             done();
         });
 
-        // it('should emit an error event when the require.js optimizer finds an error', function(done) {
+        it('should emit an error event when the require.js optimizer finds an error', function(done) {
 
-        //     var stream = grjs({
-        //         baseUrl: 'test/dir',
-        //         out: 'testURL'
-        //     });
+            var stream = grjs({
+                baseUrl: 'test/dir',
+                out: 'testURL'
+            });
 
-        //     stream.on('error', function(err) {
-        //         done();
-        //     });
+            stream.on('error', function(err) {
+                done();
+            });
 
-        // });
+        });
 
     });
 
