@@ -6,12 +6,11 @@
   "repository": "git://github.com/robinthrift/gulp-requirejs.git",
   "author": "Robin Thrift <thrift.d.robin@googlemail.com> (http://webbrickworks.com/)",
   "main": "./index.js",
-  "keywords": [
-  ],
+  "keywords": [],
   "dependencies": {
-    "gulp-util": "~2.2.5",
-    "requirejs": "2.1.8",
-    "event-stream": "~3.0.20"
+    "event-stream": "^3.0.20",
+    "gulp-util": "^2.2.20",
+    "requirejs": "^2.1.8"
   },
   "devDependencies": {
     "mocha": "*",
