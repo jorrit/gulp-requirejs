@@ -9,9 +9,9 @@
     "Jorrit Schippers (https://www.ncode.nl/)"
   ],
   "dependencies": {
-    "event-stream": "~3.0.20",
-    "gulp-util": "~2.2.5",
-    "requirejs": "2.1.8"
+    "event-stream": "~3.3.4",
+    "gulp-util": "~3.0.7",
+    "requirejs": "2.3.2"
   },
   "devDependencies": {
     "mocha": "*",
