@@ -1,5 +1,4 @@
 node_modules
 .DS_STORE
-Gruntfile.js
 .travis.yml
 test
