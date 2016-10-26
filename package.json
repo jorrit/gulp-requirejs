@@ -9,7 +9,7 @@
     "Jorrit Schippers (https://www.ncode.nl/)"
   ],
   "dependencies": {
-    "event-stream": "~3.0.20",
+    "event-stream": "^3.3.4",
     "gulp-util": "^3.0.7",
     "requirejs": "2.1.8"
   },
