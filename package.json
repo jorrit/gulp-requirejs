@@ -20,11 +20,14 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "homepage": "http://github.com/jorrit/gulp-requirejs",
+  "homepage": "https://github.com/jorrit/gulp-requirejs",
   "keywords": [],
   "license": "MIT",
   "main": "./index.js",
-  "repository": "git://github.com/jorrit/gulp-requirejs.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorrit/gulp-requirejs.git"
+  },
   "scripts": {
     "test": "mocha"
   }
