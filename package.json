@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "event-stream": "~3.0.20",
-    "gulp-util": "~2.2.5",
+    "gulp-util": "^3.0.7",
     "requirejs": "2.1.8"
   },
   "devDependencies": {
