@@ -1,4 +1,3 @@
-
 define('simple_amd_file',[],function() {
 
     var Mult = function(a, b) {
@@ -71,5 +70,6 @@ requirejs(['simple_amd_file', 'umd_file', 'complex_amd_file'], function(Mult, UM
     console.log(SumMulti(5, 8), '<= this should be 104');
 });
 define("../complex_init", function(){});
+
 
 define("../complex_init", function(){});

@@ -1,4 +1,3 @@
-
 define('vendor/simple_amd_file',[],function() {
 
     var Mult = function(a, b) {
@@ -13,5 +12,6 @@ requirejs(['vendor/simple_amd_file'], function(Mult) {
     console.log(Mult(3, 5));
 });
 define("simple_init", function(){});
+
 
 define("simple_init", function(){});

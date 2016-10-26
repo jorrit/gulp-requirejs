@@ -1,4 +1,3 @@
-
 define('vendor/simple_amd_file',[],function() {
 
     var Mult = function(a, b) {
@@ -35,5 +34,6 @@ requirejs(['vendor/simple_amd_file', 'vendor/umd_file'], function(Mult, UMDLib) 
     UMDLib.test(); // should log 'Test Log from the UMD file'
 });
 define("umd_init", function(){});
+
 
 define("umd_init", function(){});

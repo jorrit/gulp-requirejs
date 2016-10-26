@@ -27,14 +27,18 @@ describe('gulp-requirejs', function() {
             });
 
             stream.on('data', function(output) {
-                should.exist(output);
-                should.exist(output.path);
-                should.exist(output.relative);
-                should.exist(output.contents);
+				try {
+					should.exist(output);
+					should.exist(output.path);
+					should.exist(output.relative);
+					should.exist(output.contents);
 
-                output.relative.should.equal('simple_init.js');
-                String(output.contents).should.equal(fs.readFileSync('test/expected/simple_init.js', 'utf8'));
-                done();
+					output.relative.should.equal('simple_init.js');
+					String(output.contents).should.equal(fs.readFileSync('test/expected/simple_init.js', 'utf8'));
+					done();
+				} catch(e) {
+					done(e);
+				}
             });
         });
 
@@ -59,14 +63,18 @@ describe('gulp-requirejs', function() {
             });
 
             stream.on('data', function(output) {
-                should.exist(output);
-                should.exist(output.path);
-                should.exist(output.relative);
-                should.exist(output.contents);
+				try {
+					should.exist(output);
+					should.exist(output.path);
+					should.exist(output.relative);
+					should.exist(output.contents);
 
-                output.relative.should.equal('umd_init.js');
-                String(output.contents).should.equal(fs.readFileSync('test/expected/umd_init.js', 'utf8'));
-                done();
+					output.relative.should.equal('umd_init.js');
+					String(output.contents).should.equal(fs.readFileSync('test/expected/umd_init.js', 'utf8'));
+					done();
+				} catch(e) {
+					done(e);
+				}
             });
         });
 
@@ -96,14 +104,18 @@ describe('gulp-requirejs', function() {
             });
 
             stream.on('data', function(output) {
-                should.exist(output);
-                should.exist(output.path);
-                should.exist(output.relative);
-                should.exist(output.contents);
+				try {
+					should.exist(output);
+					should.exist(output.path);
+					should.exist(output.relative);
+					should.exist(output.contents);
 
-                output.relative.should.equal('complex_init.js');
-                String(output.contents).should.equal(fs.readFileSync('test/expected/complex_init.js', 'utf8'));
-                done();
+					output.relative.should.equal('complex_init.js');
+					String(output.contents).should.equal(fs.readFileSync('test/expected/complex_init.js', 'utf8'));
+					done();
+				} catch(e) {
+					done(e);
+				}
             });
         });
     });
