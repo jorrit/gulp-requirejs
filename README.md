@@ -18,7 +18,7 @@ A small, simple, very easy wrapper around the [require.js optimizer](https://git
 </tr>
 <tr>
 <td>Node Version</td>
-<td>>= 0.10</td>
+<td>>= 4</td>
 </tr>
 </table>
 
