@@ -37,7 +37,7 @@ Because the require.js optimizer (_r.js_) is a kind of build system in itself we
 
 The resulting stream can be treated like a regular `gulp.src(...)` stream.
 
->NOTE: The built in minification/obfuscation is deactivated by default and can not be switched on. Please use a gulp plugin like gulp-uglify for this.
+>NOTE: The built in minification/obfuscation is deactivated by default. It is recommended to use a gulp plugin like gulp-uglify for minification, but you can enable r.js minification by setting the `optimize` option to `uglify` to minify using r.js.
 
 ```javascript
 var gulp = require('gulp'),
@@ -52,7 +52,7 @@ gulp.task('requirejsBuild', function() {
         },
         // ... more require.js options
     })
-        .pipe(gulp.dest('./deploy/')); // pipe it to the output DIR
+    .pipe(gulp.dest('./deploy/')); // pipe it to the output DIR
 });
 ```
 
