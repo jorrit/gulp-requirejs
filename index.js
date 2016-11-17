@@ -27,11 +27,15 @@ module.exports = function(opts) {
     // create the stream and save the file name (opts.out will be replaced by a callback function later)
     var _s       = es.pause(),
         _fName   = opts.out,
-        _success = function(text) {
-            _s.write(new File({
+        _success = function(text, buildResponse) {
+            var newFile = new File({
                 path: _fName,
                 contents: new Buffer(text)
-            }));
+            });
+            // Add a string containing the list of added dependencies for
+            // debugging purposes.
+            newFile.buildResponse = buildResponse.replace('FUNCTION', _fName);
+            _s.write(newFile);
             _s.resume();
             _s.end();
         },
@@ -50,7 +54,10 @@ module.exports = function(opts) {
 
 // a small wrapper around the r.js optimizer
 function optimize(opts, successFn, errorFn) {
-    opts.out = successFn;
+    var output = null;
+    opts.out = function(text) {
+        output = text;
+    }
     opts.optimize = opts.optimize || 'none';
-    requirejs.optimize(opts, function(){}, errorFn);
+    requirejs.optimize(opts, function(buildResponse) { successFn(output, buildResponse); }, errorFn);
 }

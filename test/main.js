@@ -46,18 +46,20 @@ describe('gulp-requirejs', function() {
             });
 
             stream.on('data', function(output) {
-				try {
-					should.exist(output);
-					should.exist(output.path);
-					should.exist(output.relative);
-					should.exist(output.contents);
+                try {
+                    should.exist(output);
+                    should.exist(output.path);
+                    should.exist(output.relative);
+                    should.exist(output.contents);
+                    should.exist(output.buildResponse);
 
-					output.relative.should.equal('simple_init.js');
-					String(output.contents).should.equal(fs.readFileSync('test/expected/simple_init.js', 'utf8'));
-					done();
-				} catch(e) {
-					done(e);
-				}
+                    output.relative.should.equal('simple_init.js');
+                    String(output.contents).should.equal(fs.readFileSync('test/expected/simple_init.js', 'utf8'));
+                    output.buildResponse.should.match(/simple_init\.js[\s\S]*simple_amd_file\.js[\s\S]*simple_init\.js/m);
+                    done();
+                } catch(e) {
+                    done(e);
+                }
             });
         });
 
