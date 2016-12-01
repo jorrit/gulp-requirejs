@@ -27,6 +27,41 @@ describe('gulp-requirejs', function() {
         stream.on('end', done);
     });
 
+    it('should emit source map file when configured', function(done) {
+        var filesInPipe = [];
+
+        var stream = grjs({
+            out: 'simple_init.js',
+
+            baseUrl: 'test/fixtures/',
+
+            findNestedDependencies: true,
+            skipPragmas: true,
+            generateSourceMaps: true,
+
+            name: 'simple_init',
+
+            include: ['simple_init'],
+
+            create: true
+        });
+
+        stream.on('data', (chunk) => {
+            filesInPipe.push(chunk.path);
+        });
+
+        stream.on('end', function() {
+            try {
+                filesInPipe.length.should.equal(2);
+                filesInPipe.should.containEql('simple_init.js');
+                filesInPipe.should.containEql('simple_init.js.map');
+                done();
+            } catch(e) {
+                done(e);
+            }
+        });
+    });
+
     describe('simple AMD file', function() {
 
         it('should concat the files in the correct order', function(done) {

@@ -27,7 +27,7 @@ module.exports = function(opts) {
     // create the stream and save the file name (opts.out will be replaced by a callback function later)
     var _s       = es.pause(),
         _fName   = opts.out,
-        _success = function(text, buildResponse) {
+        _success = function(text, buildResponse, sourceMap) {
             var newFile = new File({
                 path: _fName,
                 contents: new Buffer(text)
@@ -36,6 +36,12 @@ module.exports = function(opts) {
             // debugging purposes.
             newFile.buildResponse = buildResponse.replace('FUNCTION', _fName);
             _s.write(newFile);
+            if (sourceMap) {
+                _s.write(new File({
+                    path: _fName + '.map',
+                    contents: new Buffer(sourceMap)
+                }));
+            }
             _s.resume();
             _s.end();
         },
@@ -55,9 +61,11 @@ module.exports = function(opts) {
 // a small wrapper around the r.js optimizer
 function optimize(opts, successFn, errorFn) {
     var output = null;
-    opts.out = function(text) {
+    var sourceMapOutput = null;
+    opts.out = function(text, sourceMap) {
         output = text;
+        sourceMapOutput = sourceMap;
     }
     opts.optimize = opts.optimize || 'none';
-    requirejs.optimize(opts, function(buildResponse) { successFn(output, buildResponse); }, errorFn);
+    requirejs.optimize(opts, function(buildResponse) { successFn(output, buildResponse, sourceMapOutput); }, errorFn);
 }

@@ -18,12 +18,12 @@ A small, simple, very easy wrapper around the [require.js optimizer](https://git
 </tr>
 <tr>
 <td>Node Version</td>
-<td>>= 4</td>
+<td>≧ 4</td>
 </tr>
 </table>
 
 
-##Installation
+## Installation
 
 Simply add `gulp-requirejs` as a dev-dependency in your package.json or run
 
@@ -64,6 +64,33 @@ gulp-requirejs will emit errors when you don't pass an options object and if the
 
 The require.js optimizer itself might also emit errors; unfortunately there's no way of catching them elegantly at the moment.
 
+### Source maps
+
+When source maps are enabled via the r.js `generateSourceMaps` option the stream returned by `rjs()` contains an additional file named the same as the `out` option with `.map` appended.
+
+Use [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to use this file
+in your gulp configuration:
+
+```javascript
+var gulp = require('gulp'),
+    rjs = require('gulp-requirejs')
+    sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('requirejsBuild', function() {
+    return rjs({
+        baseUrl: 'path/to/your/base/file.js',
+        out: 'FILENAME_TO_BE_OUTPUTTED',
+        generateSourceMaps: true,
+        shim: {
+            // standard require.js shim options
+        },
+        // ... more require.js options
+    })
+    .pipe(sourcemaps.init({loadMaps: true})) // initialize gulp-sourcemaps with the existing map
+    .pipe(sourcemaps.write()) // write the source maps
+    .pipe(gulp.dest('./deploy/')); // pipe it to the output DIR
+});
+```
 
 ## Options
 
