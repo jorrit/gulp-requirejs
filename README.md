@@ -60,16 +60,13 @@ Note: In order to let gulp know that the optimization completes, return the rjs 
 
 ### Error handling
 
-gulp-requirejs will emit errors when you don't pass an options object and if the `baseUrl` or `out` properties are undefined.
-
-The require.js optimizer itself might also emit errors; unfortunately there's no way of catching them elegantly at the moment.
+gulp-requirejs will emit errors when you don't pass an options object, if the `baseUrl` or `out` properties are undefined or when the requirejs optimizer detects an error.
 
 ### Source maps
 
-When source maps are enabled via the r.js `generateSourceMaps` option the stream returned by `rjs()` contains an additional file named the same as the `out` option with `.map` appended.
+When source maps are enabled via the r.js `generateSourceMaps` option the file in the stream `rjs()` contains a `sourceMap` property with the sourcemap as an object.
 
-Use [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to use this file
-in your gulp configuration:
+Use [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to process this object in your gulp configuration.
 
 ```javascript
 var gulp = require('gulp'),
