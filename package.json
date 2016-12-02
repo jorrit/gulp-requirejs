@@ -21,7 +21,11 @@
     "node": ">= 4"
   },
   "homepage": "https://github.com/jorrit/gulp-requirejs",
-  "keywords": [],
+  "keywords": [
+    "amd",
+    "gulpplugin",
+    "requirejs"
+  ],
   "license": "MIT",
   "main": "./index.js",
   "repository": {
