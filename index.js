@@ -35,13 +35,10 @@ module.exports = function(opts) {
             // Add a string containing the list of added dependencies for
             // debugging purposes.
             newFile.buildResponse = buildResponse.replace('FUNCTION', _fName);
-            _s.write(newFile);
             if (sourceMap) {
-                _s.write(new File({
-                    path: _fName + '.map',
-                    contents: new Buffer(sourceMap)
-                }));
+                newFile.sourceMap = JSON.parse(sourceMap);
             }
+            _s.write(newFile);
             _s.resume();
             _s.end();
         },

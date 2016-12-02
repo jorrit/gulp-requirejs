@@ -28,8 +28,6 @@ describe('gulp-requirejs', function() {
     });
 
     it('should emit source map file when configured', function(done) {
-        var filesInPipe = [];
-
         var stream = grjs({
             out: 'simple_init.js',
 
@@ -46,15 +44,13 @@ describe('gulp-requirejs', function() {
             create: true
         });
 
-        stream.on('data', (chunk) => {
-            filesInPipe.push(chunk.path);
-        });
-
-        stream.on('end', function() {
+        stream.on('data', (output) => {
             try {
-                filesInPipe.length.should.equal(2);
-                filesInPipe.should.containEql('simple_init.js');
-                filesInPipe.should.containEql('simple_init.js.map');
+                output.path.should.equal('simple_init.js');
+                output.should.have.property('sourceMap');
+                output.sourceMap.should.be.Object();
+                output.sourceMap.sources.should.containEql('vendor/simple_amd_file.js');
+                output.sourceMap.sources.should.containEql('simple_init.js');
                 done();
             } catch(e) {
                 done(e);
