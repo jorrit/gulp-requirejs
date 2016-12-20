@@ -1,4 +1,7 @@
 node_modules
-.DS_STORE
-.travis.yml
 test
+.DS_STORE
+.editorconfig
+.eslintignore
+.eslintrc.json
+.travis.yml

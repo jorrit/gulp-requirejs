@@ -1,16 +1,18 @@
 define('vendor/simple_amd_file',[],function() {
 
-    var Mult = function(a, b) {
-        return a * b;
-    }
+  var Mult = function(a, b) {
+    return a * b;
+  };
 
-    return Mult;
+  return Mult;
 
 });
-requirejs(['vendor/simple_amd_file'], function(Mult) {
-    console.log("executing the simple init file");
-    console.log(Mult(3, 5));
+
+requirejs(['vendor/simple_amd_file'], function(mult) {
+  console.log('executing the simple init file');
+  console.log(mult(3, 5));
 });
+
 define("simple_init", function(){});
 
 

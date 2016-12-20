@@ -14,6 +14,7 @@
     "requirejs": "^2.3.2"
   },
   "devDependencies": {
+    "eslint": "^3.12.2",
     "mocha": "*",
     "should": "*"
   },
@@ -33,6 +34,8 @@
     "url": "https://github.com/jorrit/gulp-requirejs.git"
   },
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "mocha"
   }
 }
