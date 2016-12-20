@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "eslint": "^3.12.2",
-    "mocha": "*",
-    "should": "*"
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
   },
   "engines": {
     "node": ">= 4"
