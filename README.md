@@ -3,6 +3,7 @@
 [![gulp-requirejs on npm](https://img.shields.io/npm/v/gulp-requirejs.svg?style=flat)](https://www.npmjs.com/package/gulp-requirejs)
 [![Dependency Status](https://david-dm.org/jorrit/gulp-requirejs.png)](https://david-dm.org/jorrit/gulp-requirejs)
 [![Build Status](https://travis-ci.org/jorrit/gulp-requirejs.png?branch=master)](https://travis-ci.org/jorrit/gulp-requirejs)
+[![Coverage](https://coveralls.io/repos/github/jorrit/gulp-requirejs/badge.svg)](https://coveralls.io/github/jorrit/gulp-requirejs)
 
 ## Information
 
