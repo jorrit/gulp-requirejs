@@ -1,4 +1,4 @@
-#gulp-requirejs
+# gulp-requirejs
 
 [![gulp-requirejs on npm](https://img.shields.io/npm/v/gulp-requirejs.svg?style=flat)](https://www.npmjs.com/package/gulp-requirejs)
 [![Dependency Status](https://david-dm.org/jorrit/gulp-requirejs.png)](https://david-dm.org/jorrit/gulp-requirejs)
