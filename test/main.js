@@ -48,8 +48,7 @@ describe('gulp-requirejs', function() {
         output.path.should.equal('simple_init.js');
         output.should.have.property('sourceMap');
         output.sourceMap.should.be.Object();
-        output.sourceMap.sources.should.containEql(
-                  'vendor/simple_amd_file.js');
+        output.sourceMap.sources.should.containEql('vendor/simple_amd_file.js');
         output.sourceMap.sources.should.containEql('simple_init.js');
         done();
       } catch (e) {
