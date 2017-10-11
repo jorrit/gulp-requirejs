@@ -1,7 +1,5 @@
 # gulp-requirejs
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/jorrit/gulp-requirejs.svg)](https://greenkeeper.io/)
-
 [![gulp-requirejs on npm](https://img.shields.io/npm/v/gulp-requirejs.svg?style=flat)](https://www.npmjs.com/package/gulp-requirejs)
 [![Dependency Status](https://david-dm.org/jorrit/gulp-requirejs/status.svg)](https://david-dm.org/jorrit/gulp-requirejs)
 [![Development Dependency Status](https://david-dm.org/jorrit/gulp-requirejs/dev-status.svg)](https://david-dm.org/jorrit/gulp-requirejs?type=dev)
