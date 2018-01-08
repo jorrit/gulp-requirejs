@@ -25,7 +25,9 @@
   "engines": {
     "node": ">= 4"
   },
-  "files": [],
+  "files": [
+    "index.js"
+  ],
   "homepage": "https://github.com/jorrit/gulp-requirejs",
   "keywords": [
     "amd",
