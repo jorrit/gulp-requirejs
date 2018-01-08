@@ -1,7 +1,6 @@
-var gutil = require('gulp-util');
 var requirejs = require('requirejs');
-var PluginError = gutil.PluginError;
-var File = gutil.File;
+var PluginError = require('plugin-error');
+var Vinyl = require('vinyl');
 var es = require('event-stream');
 
 // Consts
@@ -24,7 +23,7 @@ function validateOptions(opts) {
 }
 
 function createFile(filename, output, buildResponse, sourceMap) {
-  var newFile = new File({
+  var newFile = new Vinyl({
     path: filename,
     contents: new Buffer(output)
   });
