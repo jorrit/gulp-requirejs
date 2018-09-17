@@ -25,7 +25,7 @@ function validateOptions(opts) {
 function createFile(filename, output, buildResponse, sourceMap) {
   var newFile = new Vinyl({
     path: filename,
-    contents: new Buffer(output)
+    contents: Buffer.from(output)
   });
   // Add a string containing the list of added dependencies for
   // debugging purposes.
