@@ -8,7 +8,7 @@
 
 ## Information
 
-A small, simple, very easy wrapper around the [require.js optimizer](https://github.com/jrburke/r.js) to work with [gulp.js](https://github.com/gulpjs/gulp)
+A small, simple, very easy wrapper around the [require.js optimizer](https://github.com/jrburke/r.js) to work with [gulp.js](https://github.com/gulpjs/gulp).
 
 <table>
 <tr>
@@ -47,8 +47,9 @@ var gulp = require('gulp'),
 
 gulp.task('requirejsBuild', function() {
     return rjs({
-        baseUrl: 'path/to/your/base/file.js',
+        baseUrl: 'root/directory/of/js/files/',
         out: 'FILENAME_TO_BE_OUTPUTTED',
+        main: 'mainfile', // no extension
         shim: {
             // standard require.js shim options
         },
@@ -59,6 +60,8 @@ gulp.task('requirejsBuild', function() {
 ```
 
 Note: In order to let gulp know that the optimization completes, return the rjs stream.
+
+See [requirejs.org](https://requirejs.org/docs/optimization.html) for more information about the supported parameters.
 
 ### Error handling
 
@@ -77,8 +80,9 @@ var gulp = require('gulp'),
 
 gulp.task('requirejsBuild', function() {
     return rjs({
-        baseUrl: 'path/to/your/base/file.js',
+        baseUrl: 'root/directory/of/js/files/',
         out: 'FILENAME_TO_BE_OUTPUTTED',
+        main: 'mainfile', // no extension
         generateSourceMaps: true,
         shim: {
             // standard require.js shim options

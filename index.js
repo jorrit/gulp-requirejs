@@ -8,17 +8,19 @@ var PLUGIN_NAME = 'gulp-requirejs';
 
 function validateOptions(opts) {
   if (!opts) {
-    throw new PluginError(PLUGIN_NAME, 'Missing options array!');
+    throw new PluginError(PLUGIN_NAME, 'Missing options object.');
   }
 
   if (!opts.out && typeof opts.out !== 'string') {
     throw new PluginError(PLUGIN_NAME, 'Only single file outputs are ' +
-      'supported right now, please pass a valid output file name!');
+      'supported right now, please pass a valid output file name as the out ' +
+      'option.');
   }
 
   if (!opts.baseUrl) {
     throw new PluginError(PLUGIN_NAME, 'Pipeing dirs/files is not ' +
-      'supported right now, please specify the base path for your script.');
+      'supported right now, please specify the base path for your script as ' +
+      'the baseUrl option.');
   }
 }
 
