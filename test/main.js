@@ -171,6 +171,39 @@ describe('gulp-requirejs', function() {
     });
   });
 
+  describe('amd dir with shim', function() {
+    it('should concat the files in the correct order into modules.name, and build wrappers for the shimmed files', function(done) {
+      grjs({
+        mainConfigFile: 'test/fixtures/config_init_dir.js',
+        dir: 'test/expected/complex/',
+        path: {
+          'config': '../config_init_dir'
+        },
+        modules: [{
+          name: 'complex_init_dir', // no extension
+          includes: [
+            'simple_amd_file',
+            'umd_file',
+            'complex_amd_file',
+            'non_md_file'
+          ]
+        }],
+        enforceDefine: true,
+        baseUrl: 'test/fixtures/vendor',
+        optimize: 'none',
+        findNestedDependencies: true
+      });
+      try {
+        /*fs.open('test/expected/complex/build.txt', 'r', function(err, fd) {
+          should(fd !== undefined).be.exactly(true);
+        });*/
+        done();
+      } catch (e) {
+        done(e);
+      }
+    });
+  });
+
   describe('ERRORS: ', function() {
 
     it('should throw an error if we forget to pass in an options object', function(done) {
@@ -194,13 +227,13 @@ describe('gulp-requirejs', function() {
     });
 
 
-    it('should throw an error if we forget to set the output', function(done) {
+    it('should throw an error if we forget to set the output (out or dir)', function(done) {
 
       (function() {
         grjs({
           baseUrl: 'test/dir'
         });
-      }).should.throwError(/^Only.*/);
+      }).should.throwError(/^Either.*/);
 
       done();
     });

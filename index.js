@@ -11,8 +11,9 @@ function validateOptions(opts) {
     throw new PluginError(PLUGIN_NAME, 'Missing options object.');
   }
 
-  if (!opts.out && typeof opts.out !== 'string') {
-    throw new PluginError(PLUGIN_NAME, 'Only single file outputs are ' +
+  if ( !opts.out && typeof opts.out !== 'string'
+    && !opts.dir && typeof opts.dir !== 'string' ) {
+    throw new PluginError(PLUGIN_NAME, 'Either single file outputs are ' +
       'supported right now, please pass a valid output file name as the out ' +
       'option.');
   }
@@ -49,15 +50,22 @@ module.exports = function(opts) {
   // create the stream and save the file name
   // (opts.out will be replaced by a callback function later)
   var stream = es.pause();
-  var filename = opts.out;
+  var filename = opts.out || opts.dir;
   var output = null;
   var sourceMapOutput = null;
 
   // Set .out to a function to catch result text and sourcemap.
-  opts.out = function(text, sourceMap) {
-    output = text;
-    sourceMapOutput = sourceMap;
-  };
+  if (opts.out) {
+    opts.out = function(text, sourceMap) {
+      output = text;
+      sourceMapOutput = sourceMap;
+    };
+  }
+  /*else if (opts.dir) {
+    opts.dir = function(text) {
+      output = text;
+    };
+  }*/
 
   var success = function(buildResponse) {
     stream.write(createFile(filename, output, buildResponse, sourceMapOutput));
