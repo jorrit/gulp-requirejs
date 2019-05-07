@@ -9,7 +9,6 @@
     "Jorrit Schippers (https://www.ncode.nl/)"
   ],
   "dependencies": {
-    "del": "^4.1.1",
     "event-stream": "3.3.4",
     "plugin-error": "^1.0.1",
     "requirejs": "^2.3.6",
