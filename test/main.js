@@ -171,6 +171,42 @@ describe('gulp-requirejs', function() {
     });
   });
 
+  describe('amd dir with shim', function() {
+    var pathname = 'test/tmp/';
+    var moduleName = 'complex_init_dir';
+    it('should concat the files in the correct order into modules.name, and build wrappers for the shimmed files', function(done) {
+      grjs({
+        mainConfigFile: 'test/fixtures/config_init_dir.js',
+        dir: pathname,
+        path: {
+          'config': '../config_init_dir'
+        },
+        modules: [{
+          name: moduleName, // no extension
+          includes: [
+            'simple_amd_file',
+            'umd_file',
+            'complex_amd_file',
+            'non_md_file'
+          ]
+        }],
+        enforceDefine: true,
+        baseUrl: 'test/fixtures/vendor',
+        optimize: 'none',
+        findNestedDependencies: true
+      });
+      var contents = fs.readFileSync( 'test/expected/complex/' + moduleName + '.js', 'utf8');
+      var length = contents.length;
+      // wait, as require.js deletes and copies files
+      setTimeout(function(){
+        var test = fs.readFileSync( pathname + moduleName + '.js', 'utf8');
+        test.length.should.equal(length);
+        test.should.equal(contents);
+        done();
+      }, 1);
+    });
+  });
+
   describe('ERRORS: ', function() {
 
     it('should throw an error if we forget to pass in an options object', function(done) {
@@ -194,13 +230,13 @@ describe('gulp-requirejs', function() {
     });
 
 
-    it('should throw an error if we forget to set the output', function(done) {
+    it('should throw an error if we forget to set the output (out or dir)', function(done) {
 
       (function() {
         grjs({
           baseUrl: 'test/dir'
         });
-      }).should.throwError(/^Only.*/);
+      }).should.throwError(/^Either.*/);
 
       done();
     });

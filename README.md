@@ -59,6 +59,29 @@ gulp.task('requirejsBuild', function() {
 });
 ```
 
+If you use instead of out the dir option, you do not need the pipe at all, see this example in Gulp 4 syntax and mocha test:
+```javascript
+...
+const rjs = require('gulp-requirejs');
+
+async function requirejsBuild(cb) {
+    return rjs({
+        dir: 'deploy',
+        mainConfigFile: 'config.js',
+        path: {
+          'config': '../config_init'
+        },
+        modules: [{
+          name: 'FILENAME_TO_BE_OUTPUTTED', // no extension
+          include  : [ .. ]
+         ...
+        }]
+    }) ...
+};
+    
+exports.requirejsBuild = requirejsBuild;
+
+
 Note: In order to let gulp know that the optimization completes, return the rjs stream.
 
 See [requirejs.org](https://requirejs.org/docs/optimization.html) for more information about the supported parameters.
