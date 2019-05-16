@@ -172,15 +172,17 @@ describe('gulp-requirejs', function() {
   });
 
   describe('amd dir with shim', function() {
+    var pathname = 'test/tmp/';
+    var moduleName = 'complex_init_dir';
     it('should concat the files in the correct order into modules.name, and build wrappers for the shimmed files', function(done) {
       grjs({
         mainConfigFile: 'test/fixtures/config_init_dir.js',
-        dir: 'test/expected/complex/',
+        dir: pathname,
         path: {
           'config': '../config_init_dir'
         },
         modules: [{
-          name: 'complex_init_dir', // no extension
+          name: moduleName, // no extension
           includes: [
             'simple_amd_file',
             'umd_file',
@@ -193,15 +195,20 @@ describe('gulp-requirejs', function() {
         optimize: 'none',
         findNestedDependencies: true
       });
-      try {
-        /*fs.open('test/expected/complex/build.txt', 'r', function(err, fd) {
-          should(fd !== undefined).be.exactly(true);
-        });*/
+      var contents = fs.readFileSync( 'test/expected/complex/' + moduleName + '.js', 'utf8');
+      var length = contents.length;
+      // wait, as require.js deletes and copies files
+      setTimeout(function(){
+        var test = fs.readFileSync( pathname + moduleName + '.js', 'utf8');
+        test.length.should.equal(length);
+        test.should.equal(contents);
         done();
-      } catch (e) {
-        done(e);
-      }
+      }, 1);
     });
+    /*after(function() {
+      var files = require('glob').globSync(pathname + '*');
+      files.foreach( fs.unlink );
+    });*/
   });
 
   describe('ERRORS: ', function() {

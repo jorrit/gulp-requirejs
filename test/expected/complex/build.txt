@@ -1,8 +1,0 @@
-
-complex_init_dir.js
-----------------
-simple_amd_file.js
-umd_file.js
-non_md_file.js
-complex_amd_file.js
-complex_init_dir.js
