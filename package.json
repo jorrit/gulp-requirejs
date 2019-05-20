@@ -9,16 +9,16 @@
     "Jorrit Schippers (https://www.ncode.nl/)"
   ],
   "dependencies": {
-    "event-stream": "3.3.4",
+    "event-stream": "^4.0.1",
     "plugin-error": "^1.0.1",
     "requirejs": "^2.3.6",
     "vinyl": "^2.2.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "eslint": "^5.10.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
     "istanbul": "^0.4.5",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "mocha-lcov-reporter": "^1.3.0",
     "should": "^13.2.3"
   },
