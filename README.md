@@ -60,8 +60,8 @@ gulp.task('requirejsBuild', function() {
 ```
 
 If you use instead of out the dir option, you do not need the pipe at all, see this example in Gulp 4 syntax and mocha test:
+
 ```javascript
-...
 const rjs = require('gulp-requirejs');
 
 async function requirejsBuild(cb) {
@@ -80,7 +80,7 @@ async function requirejsBuild(cb) {
 };
     
 exports.requirejsBuild = requirejsBuild;
-
+```
 
 Note: In order to let gulp know that the optimization completes, return the rjs stream.
 
