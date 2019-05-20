@@ -61,11 +61,6 @@ module.exports = function(opts) {
       sourceMapOutput = sourceMap;
     };
   }
-  /*else if (opts.dir) {
-    opts.dir = function(text) {
-      output = text;
-    };
-  }*/
 
   var success = function(buildResponse) {
     stream.write(createFile(filename, output, buildResponse, sourceMapOutput));

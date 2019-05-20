@@ -205,10 +205,6 @@ describe('gulp-requirejs', function() {
         done();
       }, 1);
     });
-    /*after(function() {
-      var files = require('glob').globSync(pathname + '*');
-      files.foreach( fs.unlink );
-    });*/
   });
 
   describe('ERRORS: ', function() {
