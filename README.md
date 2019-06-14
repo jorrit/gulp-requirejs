@@ -49,7 +49,7 @@ gulp.task('requirejsBuild', function() {
     return rjs({
         baseUrl: 'root/directory/of/js/files/',
         out: 'FILENAME_TO_BE_OUTPUTTED',
-        main: 'mainfile', // no extension
+        name: 'mainfile', // no extension
         shim: {
             // standard require.js shim options
         },
@@ -105,7 +105,7 @@ gulp.task('requirejsBuild', function() {
     return rjs({
         baseUrl: 'root/directory/of/js/files/',
         out: 'FILENAME_TO_BE_OUTPUTTED',
-        main: 'mainfile', // no extension
+        name: 'mainfile', // no extension
         generateSourceMaps: true,
         shim: {
             // standard require.js shim options
