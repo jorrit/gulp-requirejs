@@ -15,7 +15,7 @@
     "vinyl": "^2.2.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "istanbul": "^0.4.5",
     "mocha": "^6.1.4",
