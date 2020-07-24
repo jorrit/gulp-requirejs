@@ -63,7 +63,11 @@ module.exports = function(opts) {
   }
 
   var success = function(buildResponse) {
-    stream.write(createFile(filename, output, buildResponse, sourceMapOutput));
+    if (output) {
+      stream.write(
+        createFile(filename, output, buildResponse, sourceMapOutput)
+      );
+    }
     stream.resume();
     stream.end();
   };
